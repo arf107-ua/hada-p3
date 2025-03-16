@@ -50,7 +50,10 @@ namespace library
             set { _creationDate = value; }
         }
 
-        public ENProduct() { }
+        public ENProduct() 
+        { 
+            //Constructor vacío
+        }
        
         public ENProduct(string code, string name, int amount, float price, int category, DateTime creationDate)
         {
