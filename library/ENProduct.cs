@@ -6,41 +6,91 @@ using System.Threading.Tasks;
 
 namespace library
 {
-    internal class ENProduct
+    public class ENProduct
     {
         private string _code;
         public string Code
         {
             get { return _code; }
-            set { _code = value; }
+            set 
+            {
+                if (value.Length >= 1 && value.Length <= 16)
+                {
+                    _code = value;
+                }
+                else
+                {
+                    throw new ArgumentException("El código debe tener entre 1 y 16 caracteres.");
+                }
+            }
         }
 
         private string _name;
         public string Name
         {
             get { return _name; }
-            set { _name = value; }
+            set
+            {
+                if (value.Length <= 32)
+                {
+                    _name = value;
+                }
+                else
+                {
+                    throw new ArgumentException("El nombre debe tener un máximo de 32 caracteres.");
+                }
+            }
         }
 
         private int _amount;
         public int Amount
         {
             get { return _amount; }
-            set { _amount = value; }
+            set
+            {
+                if (value >= 0 && value <= 9999)
+                {
+                    _amount = value;
+                }
+                else
+                {
+                    throw new ArgumentException("La cantidad debe ser un valor entre 0 y 9999.");
+                }
+            }
         }
 
         private float _price;
         public float Price
         {
             get { return _price; }
-            set { _price = value; }
+            set
+            {
+                if (value >= 0 && value <= 9999.99f)
+                {
+                    _price = value;
+                }
+                else
+                {
+                    throw new ArgumentException("El precio debe ser un valor entre 0 y 9999.99.");
+                }
+            }
         }
 
         private int _category;
         public int Category
         {
             get { return _category; }
-            set { _category = value; }
+            set
+            {
+                if (value >= 0 && value <= 3)
+                {
+                    _category = value;
+                }
+                else
+                {
+                    throw new ArgumentException("La categoría debe ser un valor entre 0 y 3.");
+                }
+            }
         }
 
         private DateTime _creationDate;
