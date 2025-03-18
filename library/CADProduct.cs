@@ -1,9 +1,14 @@
 ﻿using System;
+using System.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+<<<<<<< HEAD
+=======
+using System.Data.SqlTypes;
+>>>>>>> julia
 
 namespace library
 {
@@ -14,8 +19,12 @@ namespace library
         // Inicializa la cadena de conexión de la BD.
         public CADProduct()
         {
+<<<<<<< HEAD
             this.s = "data source=(LocalDB)\\MSSQLLocalDB;Integrated Security=SSPI;" +
                      "AttachDBFilename=|DataDirectory|\\Database.mdf";
+=======
+            s = ConfigurationManager.ConnectionStrings["miconexion"].ToString();
+>>>>>>> julia
         }
 
         public bool Create(ENProduct en)

@@ -50,7 +50,16 @@ namespace library
             get { return _price; }
             set
             {
+<<<<<<< HEAD
                 if (value < 0 || value > 9999.99f)
+=======
+                if (value >= 0 && value <= 9999.99)
+                {
+                    _price = value;
+                }
+                else
+                {
+>>>>>>> julia
                     throw new ArgumentException("El precio debe ser un valor entre 0 y 9999.99.");
                 _price = value;
             }
