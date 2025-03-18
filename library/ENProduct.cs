@@ -12,16 +12,11 @@ namespace library
         public string Code
         {
             get { return _code; }
-            set 
+            set
             {
-                if (value.Length >= 1 && value.Length <= 16)
-                {
-                    _code = value;
-                }
-                else
-                {
+                if (string.IsNullOrEmpty(value) || value.Length > 16)
                     throw new ArgumentException("El código debe tener entre 1 y 16 caracteres.");
-                }
+                _code = value;
             }
         }
 
@@ -31,14 +26,9 @@ namespace library
             get { return _name; }
             set
             {
-                if (value.Length <= 32)
-                {
-                    _name = value;
-                }
-                else
-                {
+                if (string.IsNullOrEmpty(value) || value.Length > 32)
                     throw new ArgumentException("El nombre debe tener un máximo de 32 caracteres.");
-                }
+                _name = value;
             }
         }
 
@@ -48,14 +38,9 @@ namespace library
             get { return _amount; }
             set
             {
-                if (value >= 0 && value <= 9999)
-                {
-                    _amount = value;
-                }
-                else
-                {
+                if (value < 0 || value > 9999)
                     throw new ArgumentException("La cantidad debe ser un valor entre 0 y 9999.");
-                }
+                _amount = value;
             }
         }
 
@@ -65,14 +50,9 @@ namespace library
             get { return _price; }
             set
             {
-                if (value >= 0 && value <= 9999.99f)
-                {
-                    _price = value;
-                }
-                else
-                {
+                if (value < 0 || value > 9999.99f)
                     throw new ArgumentException("El precio debe ser un valor entre 0 y 9999.99.");
-                }
+                _price = value;
             }
         }
 
@@ -82,103 +62,33 @@ namespace library
             get { return _category; }
             set
             {
-                if (value >= 0 && value <= 3)
-                {
-                    _category = value;
-                }
-                else
-                {
+                if (value < 0 || value > 3)
                     throw new ArgumentException("La categoría debe ser un valor entre 0 y 3.");
-                }
+                _category = value;
             }
         }
 
-        private DateTime _creationDate;
-        public DateTime CreationDate
-        {
-            get { return _creationDate; }
-            set { _creationDate = value; }
-        }
+        public DateTime CreationDate { get; set; }
 
-        public ENProduct() 
-        { 
-            //Constructor vacío
-        }
-       
+        public ENProduct() { }
+
         public ENProduct(string code, string name, int amount, float price, int category, DateTime creationDate)
         {
-            _code = code;
-            _name = name;
-            _amount = amount;
-            _price = price;
-            _category = category;
-            _creationDate = creationDate;
+            Code = code;
+            Name = name;
+            Amount = amount;
+            Price = price;
+            Category = category;
+            CreationDate = creationDate;
         }
 
-        /*Guarda este producto en la BD.Para ello hará uso de
-        los métodos apropiados de CADProduct.Devuelve false si no se ha podido
-        realizar la operación.*/
-        public bool Create()
-        {
-            CADProduct cadProduct = new CADProduct();
-            return cadProduct.Create(this);
-        }
-
-        /*Actualiza este producto en la BD.Para ello hará uso
-        de los métodos apropiados de CADProduct.Devuelve false si no se ha
-        podido realizar la operación.*/
-        public bool Update()
-        {
-            CADProduct cadProduct = new CADProduct();
-            return cadProduct.Update(this);
-        }
-
-        /*Borra este producto de la BD.Para ello hará uso de
-        los métodos apropiados de CADProduct.Devuelve false si no se ha podido
-        realizar la operación.*/
-        public bool Delete()
-        {
-            CADProduct cadProduct = new CADProduct();
-            return cadProduct.Delete(this);
-        }
-
-        /*Recupera el producto indicado de la BD.Para ello hará
-        uso de los métodos apropiados de CADProduct.Devuelve false si no se ha
-        podido realizar la operación.*/
-        public bool Read()
-        {
-            CADProduct cadProduct = new CADProduct();
-            return cadProduct.Read(this);
-        }
-
-        /*Recupera todos los productos de la BD y devuelve
-        solo el primer producto.Para ello hará uso de los métodos apropiados de
-        CADProduct.Devuelve false si no se ha podido realizar la operación.*/
-        public bool ReadFirst()
-        {
-            CADProduct cadProduct = new CADProduct();
-            return cadProduct.ReadFirst(this);
-        }
-
-        /*Recupera todos los productos de la BD y devuelve
-         solo el producto siguiente al indicado. Para ello hará uso de los métodos
-        apropiados de CADProduct. Devuelve false si no se ha podido realizar la
-        operación.*/
-        public bool ReadNext()
-        {
-            CADProduct cadProduct = new CADProduct();
-            return cadProduct.ReadNext(this);
-        }
-
-        /*Recupera todos los productos de la BD y devuelve
-        solo el producto anterior al indicado. Para ello hará uso de los métodos
-        apropiados de CADProduct. Devuelve false si no se ha podido realizar la
-        operación.
-        */
-        public bool ReadPrev()
-        {
-            CADProduct cadProduct = new CADProduct();
-            return cadProduct.ReadPrev(this);
-        }
+        public bool Create() => new CADProduct().Create(this);
+        public bool Update() => new CADProduct().Update(this);
+        public bool Delete() => new CADProduct().Delete(this);
+        public bool Read() => new CADProduct().Read(this);
+        public bool ReadFirst() => new CADProduct().ReadFirst(this);
+        public bool ReadNext() => new CADProduct().ReadNext(this);
+        public bool ReadPrev() => new CADProduct().ReadPrev(this);
     }
 }
+
