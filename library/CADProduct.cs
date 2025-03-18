@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -9,7 +10,6 @@ using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
-using System.Reflection.Emit;
 
 namespace library
 {
@@ -20,8 +20,7 @@ namespace library
         //Inicializa la cadena de conexión de la BD.
         public CADProduct()
         {
-            string s = "data source=(LocalDBD)/MSSQLLocalDB;Integrated" +
-                "Security=SSPI;AttachDBFilename=|DataDirectory|\\Database.mdf";
+            s = ConfigurationManager.ConnectionStrings["miconexion"].ToString();
         }
 
         //Crea un nuevo producto en la BD con

@@ -65,7 +65,7 @@ namespace library
             get { return _price; }
             set
             {
-                if (value >= 0 && value <= 9999.99f)
+                if (value >= 0 && value <= 9999.99)
                 {
                     _price = value;
                 }
