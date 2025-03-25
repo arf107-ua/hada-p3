@@ -11,10 +11,10 @@
     <style>
         h1 {
             text-align: center;
-            background-color: cornflowerblue;
-            color: white;
-            padding: 10px;  /* Espaciado interno para que el fondo se vea mejor */
-            border-radius: 5px;  /* Bordes redondeados (opcional) */
+            background-color: darkturquoise;
+            /*color: white;
+            padding: 10px;   Espaciado interno para que el fondo se vea mejor */
+            /*border-radius: 5px;   Bordes redondeados (opcional) */
             
         }
     </style>
@@ -25,10 +25,12 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 <p>
                     Adrián Requena Fernández - DNI 24509047V</p>
+
+                <h1>HADA P3 - CURSO 2024/25</h1>
                 <p>
                     &nbsp;</p>
             </asp:ContentPlaceHolder>
-            <h1>HADA P3 - CURSO 2024/25</h1>
+            
         </div>
     </form>
 </body>
