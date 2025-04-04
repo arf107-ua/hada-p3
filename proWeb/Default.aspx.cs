@@ -12,8 +12,31 @@ namespace proWeb
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+            if (!IsPostBack)
+            {
+                CargarCategory();
+            }
+        }
 
-		}
+        private void CargarCategory()
+        {
+            CADCategory cadCategory = new CADCategory(); 
+            List<ENCategory> categories = cadCategory.ReadAll(); 
+
+            ddlCategory.Items.Clear();
+
+            if (categories.Count == 0)
+            {
+                ddlCategory.Items.Add(new ListItem("No hay categorías disponibles", "-1"));
+            }
+            else
+            {
+                foreach (ENCategory category in categories)
+                {
+                    ddlCategory.Items.Add(new ListItem(category.Name, category.Id.ToString()));
+                }
+            }
+        }
 
         protected void txtCode_TextChanged(object sender, EventArgs e)
         {
