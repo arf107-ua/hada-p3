@@ -32,7 +32,7 @@ namespace library
             try
             {
                 c.Open();
-                string query = "INSERT INTO Product (code, name, amount, price, category, creationDate) " +
+                string query = "INSERT INTO Products (code, name, amount, price, category, creationDate) " +
                                "VALUES (@code, @name, @amount, @price, @category, @creationDate)";
                 SqlCommand com = new SqlCommand(query, c);
                 com.Parameters.AddWithValue("@code", en.Code);
@@ -65,7 +65,7 @@ namespace library
             try
             {
                 c.Open();
-                string query = "UPDATE Product SET name = @name, amount = @amount, price = @price, category = @category, " +
+                string query = "UPDATE Products SET name = @name, amount = @amount, price = @price, category = @category, " +
                                "creationDate = @creationDate WHERE code = @code";
                 SqlCommand com = new SqlCommand(query, c);
                 com.Parameters.AddWithValue("@code", en.Code);
@@ -97,7 +97,7 @@ namespace library
             try
             {
                 c.Open();
-                string query = "DELETE FROM Product WHERE code = @code";
+                string query = "DELETE FROM Products WHERE code = @code";
                 SqlCommand com = new SqlCommand(query, c);
 
                 com.Parameters.AddWithValue("@code", en.Code);
@@ -124,8 +124,9 @@ namespace library
             try
             {
                 c.Open();
-                string query = "SELECT * FROM Product WHERE code = @code";
+                string query = "SELECT * FROM Products WHERE code = @code";
                 SqlCommand com = new SqlCommand(query, c);
+                com.Parameters.AddWithValue("@code", en.Code);
                 SqlDataReader dr = com.ExecuteReader();
 
                 if (dr.Read())
@@ -157,7 +158,8 @@ namespace library
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("SELECT TOP 1 * FROM Product ORDER BY code", c);
+                string query = "SELECT TOP 1 * FROM Products ORDER BY code";
+                SqlCommand com = new SqlCommand(query, c);
                 SqlDataReader dr = com.ExecuteReader();
                 if (dr.Read())
                 {
@@ -189,7 +191,7 @@ namespace library
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("SELECT * FROM Product WHERE code > @code ORDER BY code", c);
+                SqlCommand com = new SqlCommand("SELECT * FROM Products WHERE code > @code ORDER BY code", c);
                 com.Parameters.AddWithValue("@code", en.Code);
 
                 SqlDataReader dr = com.ExecuteReader();
@@ -223,7 +225,7 @@ namespace library
             try
             {
                 c.Open();
-                SqlCommand com = new SqlCommand("SELECT * FROM Product WHERE code < @code ORDER BY code DESC", c);
+                SqlCommand com = new SqlCommand("SELECT * FROM Products WHERE code < @code ORDER BY code DESC", c);
                 com.Parameters.AddWithValue("@code", en.Code);
 
                 SqlDataReader dr = com.ExecuteReader();

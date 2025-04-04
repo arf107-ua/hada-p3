@@ -51,9 +51,9 @@
         <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" CssClass="form-button" />
         <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" CssClass="form-button" />
         <asp:Button ID="btnRead" runat="server" Text="Read" OnClick="btnRead_Click" CssClass="form-button" />
-        <asp:Button ID="btnReadFirst" runat="server" Text="Read First" CssClass="form-button" />
-        <asp:Button ID="btnReadPrev" runat="server" Text="Read Prev" CssClass="form-button" />
-        <asp:Button ID="btnReadNext" runat="server" Text="Read Next" CssClass="form-button" />
+        <asp:Button ID="btnReadFirst" runat="server" Text="Read First" OnClick="btnReadFirst_Click" CssClass="form-button" />
+        <asp:Button ID="btnReadPrev" runat="server" Text="Read Prev" OnClick="btnReadPrev_Click" CssClass="form-button" />
+        <asp:Button ID="btnReadNext" runat="server" Text="Read Next" OnClick="btnReadNext_Click" CssClass="form-button" />
     </div>
 
     <div style="margin-top: 10px; text-align: center;">

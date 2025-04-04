@@ -31,7 +31,7 @@ namespace proWeb
                     Amount = int.Parse(txtAmount.Text),
                     Price = float.Parse(txtPrice.Text),
                     Category = int.Parse(ddlCategory.SelectedValue),
-                    CreationDate = DateTime.Now 
+                    CreationDate = DateTime.Parse(txtCreationDate.Text)
                 };
 
                 CADProduct cadProduct = new CADProduct();
@@ -132,7 +132,7 @@ namespace proWeb
                     txtAmount.Text = product.Amount.ToString();
                     txtPrice.Text = product.Price.ToString();
                     ddlCategory.SelectedValue = product.Category.ToString();
-                    txtCreationDate.Text = product.CreationDate.ToString("dd/mm/aaaa");
+                    txtCreationDate.Text = product.CreationDate.ToString("dd/MM/yyyy HH:mm:ss");
 
                     lblMessage.Text = "Product read successfully.";
                 }
@@ -164,7 +164,7 @@ namespace proWeb
                     txtAmount.Text = product.Amount.ToString();
                     txtPrice.Text = product.Price.ToString();
                     ddlCategory.SelectedValue = product.Category.ToString();
-                    txtCreationDate.Text = product.CreationDate.ToString("dd/mm/aaaa");
+                    txtCreationDate.Text = product.CreationDate.ToString("dd/MM/yyyy HH:mm:ss");
 
                     lblMessage.Text = "First product read.";
                 }
@@ -196,7 +196,7 @@ namespace proWeb
                     txtAmount.Text = product.Amount.ToString();
                     txtPrice.Text = product.Price.ToString();
                     ddlCategory.SelectedValue = product.Category.ToString();
-                    txtCreationDate.Text = product.CreationDate.ToString("yyyy-MM-dd");
+                    txtCreationDate.Text = product.CreationDate.ToString("dd/MM/yyyy HH:mm:ss");
 
                     lblMessage.Text = "Previous product read.";
                 }
