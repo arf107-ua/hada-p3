@@ -67,13 +67,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-=======
     <Content Include="App_Data\Database.mdf" />
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
->>>>>>> julia
     <Content Include="Web.config" />
     <Content Include="Default.aspx" />
   </ItemGroup>
