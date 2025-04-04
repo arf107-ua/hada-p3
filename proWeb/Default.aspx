@@ -4,7 +4,9 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <p>Adrián Requena Fernández - DNI 24509047V</p>
+    <p>Adrián Requena Fernández - DNI 24509047V <br />
+        Julia Shifei Nieto Fernández - DNI 70428580G
+    </p>
 
     <h2 style="text-align: center;background-color: lightblue; padding: 10px; text-align: center;">
         HADA P3 - CURSO 2024/25</h2>
