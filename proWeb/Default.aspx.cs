@@ -228,7 +228,7 @@ namespace proWeb
                     txtAmount.Text = product.Amount.ToString();
                     txtPrice.Text = product.Price.ToString();
                     ddlCategory.SelectedValue = product.Category.ToString();
-                    txtCreationDate.Text = product.CreationDate.ToString("yyyy-MM-dd");
+                    txtCreationDate.Text = product.CreationDate.ToString("dd/MM/yyyy HH:mm:ss");
 
                     lblMessage.Text = "Next product read.";
                 }

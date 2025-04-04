@@ -36,6 +36,7 @@ namespace library
                     e = true;
                 }
 
+                dr.Close();
                 sqlConnection.Close();
             }
             catch (Exception ex) 
